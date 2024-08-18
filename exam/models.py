@@ -13,7 +13,7 @@ class Sst(models.Model):
     def __str__(self):
         return self.title
 
-# Model to save answers by the users
+# Model to save Sst answers by the users
 class Sstuseranswer(models.Model):
     question = models.ForeignKey(Sst, on_delete=models.CASCADE, blank=False, null=False)
     user = models.ForeignKey(User, related_name='sst_answers_by_user', on_delete=models.CASCADE, blank=False, null=False)
@@ -27,4 +27,25 @@ class Sstuseranswer(models.Model):
 
 
     def __str__(self):
-        return self.answer[0:50]
+        return f"Q: {self.question.title}, A: {self.answer[0:50]}"
+    
+
+# Model for Re-Order Paragraph type question.
+class Ro(models.Model):
+    title = models.CharField(max_length=150, null=False, blank=False)
+    paragraphs = models.JSONField(default=dict)
+    correct_order = models.JSONField(default=list)
+
+    def __str__(self):
+        return self.title
+    
+# Model to save RO answers by the users
+class Rouseranswer(models.Model):
+    question = models.ForeignKey(Ro, on_delete=models.CASCADE, blank=False, null=False)
+    user = models.ForeignKey(User, related_name='ro_answers_by_user', on_delete=models.CASCADE, blank=False, null=False)
+    answer = models.JSONField(default=list)
+    score = models.IntegerField(blank=True, null=False,default=0)
+    max_score = models.IntegerField(blank=True, null=False,default=0)
+
+    def __str__(self):
+        return f"Q: {self.question.title}, A: {self.answer}"
