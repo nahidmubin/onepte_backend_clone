@@ -1,6 +1,6 @@
 from ninja import NinjaAPI
 from ninja import NinjaAPI
-from .models import Sst, Sstuseranswer, User, Ro, Rouseranswer
+from .models import Sst, Sstuseranswer, User, Ro, Rouseranswer, Mcq, Mcquseranswer
 from .schema import PostsstanswerSchema
 import random
 from django.shortcuts import get_object_or_404
@@ -18,6 +18,8 @@ def get_question(request, type: str = None, id: int = None):
             questions = Sst.objects.all()
         elif type == 'ro':
             questions = Ro.objects.all()
+        elif type == 'mcq':
+            questions = Mcq.objects.all()
         else:
             return {'message': 'Please use proper "type" query in url'}
         
@@ -43,6 +45,14 @@ def get_question(request, type: str = None, id: int = None):
             question_bank['id'] = question.id
             question_bank['title'] = question.title
             question_bank['paragraphs'] = question.paragraphs
+
+        elif type == 'mcq':
+            question = get_object_or_404(Mcq, id=id)
+
+            question_bank['id'] = question.id
+            question_bank['title'] = question.title
+            question_bank['passage'] = question.passage
+            question_bank['options'] = question.options
 
         else:
             return {'message': 'Please use proper "type" query in url'}
@@ -110,7 +120,34 @@ def receive_answer(request, type: str, submission: PostsstanswerSchema):
             'score': user_answer.score,
             'max_score': user_answer.max_score
         }
+
+    elif type == 'mcq':
+        question = get_object_or_404(Mcq, id=submission.question_id)
+        user = get_object_or_404(User, username=submission.username)
+        correct_choice = question.correct_choice
+        max_score = len(correct_choice)
+        answer = submission.mcq_answer
+
+        score = 0
+        for choice in answer:
+            if choice in correct_choice:
+                score += 1
+            else:
+                score -= 1
+        if score < 0:
+            score = 0
+
+        user_answer = Mcquseranswer.objects.create(question=question, user=user,
+                        answer=answer, score=score, max_score=max_score)
         
+        user_answer_dict = {
+            'question_id': user_answer.question.id,
+            'username': user_answer.user.username,
+            'answer': user_answer.answer,
+            'score': user_answer.score,
+            'max_score': user_answer.max_score
+        }
+
     else:
         return {'message': 'Please use proper "type" query in url'}
 
@@ -121,8 +158,8 @@ def receive_answer(request, type: str, submission: PostsstanswerSchema):
 # Get all the answers of a user
 @api.get("/api/answer")
 def get_user_answer(request, type: str, username: str):
+    user = get_object_or_404(User, username=username)
     if type == 'sst':
-        user = get_object_or_404(User, username=username)
         answers = user.sst_answers_by_user.all()
 
         answer_dict = {}
@@ -145,9 +182,12 @@ def get_user_answer(request, type: str, username: str):
                 'max_total_score': 10
             }
     
-    elif type == 'ro':
-        user = get_object_or_404(User, username=username)
-        answers = user.ro_answers_by_user.all()
+    elif type == 'ro' or type == 'mcq':
+
+        if type == 'ro':
+            answers = user.ro_answers_by_user.all()
+        else:
+            answers = user.mcq_answers_by_user.all()
 
         answer_dict = {}
         for answer in answers:

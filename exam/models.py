@@ -49,3 +49,26 @@ class Rouseranswer(models.Model):
 
     def __str__(self):
         return f"Q: {self.question.title}, A: {self.answer}"
+    
+
+# Model for Multiple Choice type question.
+class Mcq(models.Model):
+    title = models.CharField(max_length=150, null=False, blank=False)
+    passage = models.TextField(null=False, blank=False)
+    options = models.JSONField(default=dict)
+    correct_choice = models.JSONField(default=list)
+
+    def __str__(self):
+        return self.title
+    
+
+# Model to save MCQ answers by the users
+class Mcquseranswer(models.Model):
+    question = models.ForeignKey(Mcq, on_delete=models.CASCADE, blank=False, null=False)
+    user = models.ForeignKey(User, related_name='mcq_answers_by_user', on_delete=models.CASCADE, blank=False, null=False)
+    answer = models.JSONField(default=list)
+    score = models.IntegerField(blank=True, null=False,default=0)
+    max_score = models.IntegerField(blank=True, null=False,default=0)
+
+    def __str__(self):
+        return f"Q: {self.question.title}, A: {self.answer}"
