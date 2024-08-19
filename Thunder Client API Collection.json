@@ -1,0 +1,284 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "OnePTE Backend API",
+    "collectionId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+    "dateExported": "2024-08-19T16:53:10.324Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5e674097-ac6a-499f-a6e8-39c74f3ffe72",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET SST (all question)",
+            "url": "127.0.0.1:8000/onepte/api?type=sst",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-08-19T16:48:58.541Z",
+            "modified": "2024-08-19T16:48:58.541Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "sst",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "b09f56f6-295e-49a3-808a-df965dcaa804",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET SST (specific question with details)",
+            "url": "127.0.0.1:8000/onepte/api?type=sst&id=2",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-19T16:49:11.694Z",
+            "modified": "2024-08-19T16:49:11.694Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "sst",
+                    "isPath": false
+                },
+                {
+                    "name": "id",
+                    "value": "2",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "ed701a10-8cd9-405d-b56b-ed9bb5b91fac",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET RO (all question)",
+            "url": "127.0.0.1:8000/onepte/api?type=ro",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-08-19T16:49:25.820Z",
+            "modified": "2024-08-19T16:49:25.820Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "ro",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "b1b842f0-f571-46d8-8d8f-1f95aa7eb59b",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET RO (specific question with details)",
+            "url": "127.0.0.1:8000/onepte/api?type=ro&id=4",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-08-19T16:49:39.327Z",
+            "modified": "2024-08-19T16:49:39.327Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "ro",
+                    "isPath": false
+                },
+                {
+                    "name": "id",
+                    "value": "4",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "0db92208-8989-43cb-86e4-a46ebfe817e0",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET MCQ (all question)",
+            "url": "127.0.0.1:8000/onepte/api?type=mcq",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-08-19T16:49:51.628Z",
+            "modified": "2024-08-19T16:49:51.628Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "mcq",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "c9e1da87-1a0a-41f4-82d5-8cae3d18d61a",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET MCQ (specific question with details)",
+            "url": "127.0.0.1:8000/onepte/api?type=mcq&id=1",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-08-19T16:50:05.291Z",
+            "modified": "2024-08-19T16:50:05.291Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "mcq",
+                    "isPath": false
+                },
+                {
+                    "name": "id",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "466838fc-2833-4cf5-b796-bef9e68a48b5",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "POST SST",
+            "url": "127.0.0.1:8000/onepte/api?type=sst",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-08-19T16:51:03.774Z",
+            "modified": "2024-08-19T16:51:03.774Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "sst",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"question_id\": 5,\n  \"username\": \"ron\",\n  \"sst_answer\": \"Answer to 5\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "1154f4d5-9d52-4784-8a54-01447a48c6a5",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "POST RO",
+            "url": "127.0.0.1:8000/onepte/api?type=ro",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-08-19T16:51:10.965Z",
+            "modified": "2024-08-19T16:51:10.965Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "ro",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"question_id\": 2,\n  \"username\": \"barbarossa\",\n  \"ro_answer\": [2, 3, 4, 1, 5]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b6c80594-4cbd-40da-b40f-212b98b8f872",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "POST MCQ",
+            "url": "127.0.0.1:8000/onepte/api?type=mcq",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-08-19T16:51:19.048Z",
+            "modified": "2024-08-19T16:51:19.048Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "mcq",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"question_id\": 4,\n  \"username\": \"john\",\n  \"mcq_answer\": [\"B\",\"D\",\"E\"]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d8b7056d-8876-427b-a765-1aea99976088",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET ALL ANSWER (sst) ",
+            "url": "127.0.0.1:8000/onepte/api/answer?type=sst&username=john",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-08-19T16:51:34.065Z",
+            "modified": "2024-08-19T16:51:34.065Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "sst",
+                    "isPath": false
+                },
+                {
+                    "name": "username",
+                    "value": "john",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "54712499-d638-43fa-a4a7-87315315c9ef",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET ALL ANSWER (ro) ",
+            "url": "127.0.0.1:8000/onepte/api/answer?type=ro&username=barbarossa",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-08-19T16:51:41.245Z",
+            "modified": "2024-08-19T16:51:41.246Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "ro",
+                    "isPath": false
+                },
+                {
+                    "name": "username",
+                    "value": "barbarossa",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "b2b0f68e-396f-4043-a29e-ea2121eadd89",
+            "colId": "28e61dc6-7cee-42d9-881c-c30d8bb11680",
+            "containerId": "",
+            "name": "GET ALL ANSWER (mcq)",
+            "url": "127.0.0.1:8000/onepte/api/answer?type=mcq&username=john",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2024-08-19T16:51:48.079Z",
+            "modified": "2024-08-19T16:51:48.079Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "type",
+                    "value": "mcq",
+                    "isPath": false
+                },
+                {
+                    "name": "username",
+                    "value": "john",
+                    "isPath": false
+                }
+            ]
+        }
+    ],
+    "ref": "2sAo2hYiiLi9DCGx0UCyeOjPxQjpuQUuS-r59xWeMRqWbd4cuaZiurha4uVvRkmRXP7G0Zf_7GCoFQ-5rvUOFw"
+}
