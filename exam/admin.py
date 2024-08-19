@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import Sst, Sstuseranswer, Ro, Rouseranswer, Mcq, Mcquseranswer
+from .models import Sst, Sstanswer, Ro, Roanswer, Mcq, Mcqanswer
 
-# Register your models here.
 admin.site.register(Sst)
-admin.site.register(Sstuseranswer)
+admin.site.register(Sstanswer)
 admin.site.register(Ro)
-admin.site.register(Rouseranswer)
+admin.site.register(Roanswer)
 admin.site.register(Mcq)
-admin.site.register(Mcquseranswer)
+admin.site.register(Mcqanswer)
